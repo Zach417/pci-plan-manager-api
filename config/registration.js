@@ -43,11 +43,12 @@ module.exports = function (app) {
 				if (!user.validPassword(password)) {
 					return sendAuthorizationFailedJson(res);
 				} else {
-					var token = user.generateToken();
-					res.json({
-						success: true,
-						message: 'User successfully registered.',
-						accessToken: token
+					user.generateToken(function (token) {
+						res.json({
+							success: true,
+							message: 'User successfully registered.',
+							accessToken: token
+						});
 					});
 				}
 			}
