@@ -52,17 +52,18 @@ var writeFilterSchema = {
 function findOne (user, id, callback) {
 	Plan
 		.findOne({"_id": id})
-		.where({$or: [{"_id": {$in : user.plans}}, {"ownerId": {$eq: user._id}}]})
+		.where({$or: [{"_id": {$in : user.plans}}]})
 		.exec(function (err, result) {
 			return callback(result);
 		});
 }
 
 function findMany (user, callback) {
+    console.log(user);
 	Plan
 		.find()
 		.sort([['name', 'ascending']])
-		.where({$or: [{"_id": {$in : user.plans}}, {"ownerId": {$eq: user._id}}]})
+		.where({$or: [{"_id": {$in : user.plans}}]})
 		.exec(function (err, result) {
 			return callback(result);
 		});
