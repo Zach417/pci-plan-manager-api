@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost/test");
+mongoose.connect("mongodb://172.31.16.142/planmanager");
 
 app.use(function (req, res, next) {
     console.log(req.method + req.path);
