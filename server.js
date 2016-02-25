@@ -17,5 +17,5 @@ require('./config/registration') (app);
 
 app.use('/', require('./router'));
 
-app.listen(1337);
-console.log('Magic happens on port 1337');
+app.listen(80);
+console.log('Magic happens on port 80');
