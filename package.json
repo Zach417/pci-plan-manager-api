@@ -1,0 +1,15 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node boot.js",
+    "validate": "grunt validate-package"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt-nsp-package": "0.0.5"
+  }
+}
