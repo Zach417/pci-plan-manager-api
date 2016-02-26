@@ -77,17 +77,16 @@ userSchema.methods.generateToken = function(callback) {
 userSchema.methods.isValidToken = function (token) {
     var tokens = this.get("tokens");
 
-    var isCorrectToken = false;
-    var isNotExpired = false;
-
     for (var i = 0; i < 5; i++) {
-        var currentToken = tokens[i];
-        var isCorrectToken = bcrypt.compareSync(token, currentToken);
-        var isNotExpired = (addMinutes(this.token.createdOn, 60) > Date.now());
-        return (isCorrectToken && isNotExpired);
+        var isCorrectToken = bcrypt.compareSync(token, tokens[i].value);
+        var isNotExpired = (addMinutes(tokens[i].createdOn, 60) > Date.now());
+
+        if (isCorrectToken && isNotExpired) {
+            return (true);
+        }
     }
 
-    return (isCorrectToken && isNotExpired);
+    return (false);
 }
 
 userSchema.statics.getUserFromEmail = function (email, callback) {

@@ -57,6 +57,8 @@ module.exports = function (app) {
 				return sendAuthorizationFailedJson(res);
 			}
 
+			console.log(user.isValidToken(token));
+
 			if (user.isValidToken(token)) {
 				next();
 			} else {
