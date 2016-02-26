@@ -61,10 +61,10 @@ userSchema.methods.validPassword = function(password) {
 
 userSchema.methods.generateToken = function(callback) {
     createToken(function (tokenValue) {
-        var tokenValue = bcrypt.hashSync(tokenValue, bcrypt.genSaltSync(8), null);
+        var encryptedToken = bcrypt.hashSync(tokenValue, bcrypt.genSaltSync(8), null);
 
         this.tokens.push({
-            value: tokenValue,
+            value: encryptedToken,
             createdOn: Date.now(),
         });
         this.save(function (err) {
