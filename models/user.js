@@ -2,8 +2,6 @@ var restful = require('node-restful');
 var mongoose = restful.mongoose;
 var bcrypt = require('bcrypt-nodejs');
 
-var tokenSchema = require('./token');
-
 function createToken (callback) {
     require('crypto').randomBytes(128, function(ex, buf) {
         var token = buf.toString('hex');
@@ -20,7 +18,10 @@ var userSchema = new mongoose.Schema({
     lastName: String,
     email: { type : String , unique : true, required : true, dropDups: true },
     password: String,
-    token: tokenSchema,
+    tokens: [{
+    	value: String,
+    	createdOn: Date,
+    }],
     plans: [{
         type: mongoose.Schema.ObjectId,
         ref: 'Plan',
@@ -60,8 +61,10 @@ userSchema.methods.validPassword = function(password) {
 
 userSchema.methods.generateToken = function(callback) {
     createToken(function (tokenValue) {
-        this.token.value = bcrypt.hashSync(tokenValue, bcrypt.genSaltSync(8), null);
-        this.token.createdOn = Date.now();
+        this.tokens.push({
+            value = bcrypt.hashSync(tokenValue, bcrypt.genSaltSync(8), null),
+            createdOn = Date.now(),
+        });
         this.save(function (err) {
             if (err) { console.log(err); }
         });
@@ -70,8 +73,18 @@ userSchema.methods.generateToken = function(callback) {
 }
 
 userSchema.methods.isValidToken = function (token) {
-    var isCorrectToken = bcrypt.compareSync(token, this.get("token.value"));
-    var isNotExpired = (addMinutes(this.token.createdOn, 60) > Date.now());
+    var tokens = this.get("tokens");
+
+    var isCorrectToken = false;
+    var isNotExpired = false;
+
+    for (var i = 0; i < 5; i++) {
+        var currentToken = tokens[i];
+        var isCorrectToken = bcrypt.compareSync(token, currentToken);
+        var isNotExpired = (addMinutes(this.token.createdOn, 60) > Date.now());
+        return (isCorrectToken && isNotExpired);
+    }
+
     return (isCorrectToken && isNotExpired);
 }
 
