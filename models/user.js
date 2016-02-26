@@ -77,6 +77,10 @@ userSchema.methods.generateToken = function(callback) {
 userSchema.methods.isValidToken = function (token) {
     var tokens = this.get("tokens");
 
+    tokens.sort(function(a,b){
+        return new Date(b.createdOn) - new Date(a.createdOn);
+    });
+
     for (var i = 0; i < 5; i++) {
         var isCorrectToken = bcrypt.compareSync(token, tokens[i].value);
         var isNotExpired = (addMinutes(tokens[i].createdOn, 60) > Date.now());
