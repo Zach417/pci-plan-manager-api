@@ -59,7 +59,6 @@ function findOne (user, id, callback) {
 }
 
 function findMany (user, callback) {
-    console.log(user);
 	Plan
 		.find()
 		.sort([['name', 'ascending']])
