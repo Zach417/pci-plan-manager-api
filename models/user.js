@@ -74,34 +74,42 @@ userSchema.methods.generateToken = function(callback) {
     }.bind(this));
 }
 
-userSchema.methods.isValidToken = function (token) {
+userSchema.methods.deleteExpiredTokens = function (callback) {
     var tokens = this.get("tokens");
-    var validTokens = [];
-
-    tokens.sort(function(a,b){
-        return new Date(b.createdOn) - new Date(a.createdOn);
-    });
+    var activeTokens = [];
 
     for (var i = 0; i < tokens.length; i++) {
-        var isCorrectToken = bcrypt.compareSync(token, tokens[i].value);
-        var isNotExpired = (addMinutes(tokens[i].createdOn, 60) > Date.now());
-
-        if (isCorrectToken && isNotExpired) {
-            validTokens.push(tokens[i]);
+        var isNotExpired = (addMinutes(tokens[i].createdOn, 600) > Date.now());
+        if (isNotExpired) {
+            activeTokens.push(tokens[i]);
         }
     }
 
-    this.tokens = validTokens;
-
+    this.tokens = activeTokens;
     this.save(function (err) {
-        if (err) { console.log(err); }
+        if (err) {
+            console.log(err);
+            callback();
+        } else {
+            callback(activeTokens);
+        }
     });
+}
 
-    if (validTokens.length > 0) {
-        return true;
-    } else {
+userSchema.methods.isValidToken = function (token) {
+    this.deleteExpiredTokens(function (tokens) {
+        if (!tokens) {
+            return false;
+        }
+
+        for (var i = 0; i < activeTokens.length; i++) {
+            if (bcrypt.compareSync(token, activeTokens[i].value)) {
+                return true;
+            }
+        }
+
         return false;
-    }
+    });
 }
 
 userSchema.statics.getUserFromEmail = function (email, callback) {
