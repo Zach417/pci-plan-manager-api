@@ -74,7 +74,7 @@ userSchema.methods.generateToken = function(callback) {
     }.bind(this));
 }
 
-userSchema.methods.deleteExpiredTokens = function (callback) {
+userSchema.methods.deleteExpiredTokens = function () {
     var tokens = this.get("tokens");
     var activeTokens = [];
 
@@ -87,29 +87,21 @@ userSchema.methods.deleteExpiredTokens = function (callback) {
 
     this.tokens = activeTokens;
     this.save(function (err) {
-        if (err) {
-            console.log(err);
-            callback();
-        } else {
-            callback(activeTokens);
-        }
+        if (err) { console.log(err); }
     });
 }
 
 userSchema.methods.isValidToken = function (token) {
-    this.deleteExpiredTokens(function (tokens) {
-        if (!tokens) {
-            return false;
-        }
+    this.deleteExpiredTokens();
+    var tokens = this.get("tokens");
 
-        for (var i = 0; i < activeTokens.length; i++) {
-            if (bcrypt.compareSync(token, activeTokens[i].value)) {
-                return true;
-            }
+    for (var i = 0; i < tokens.length; i++) {
+        if (bcrypt.compareSync(token, tokens[i].value)) {
+            return true;
         }
+    }
 
-        return false;
-    });
+    return false;
 }
 
 userSchema.statics.getUserFromEmail = function (email, callback) {
