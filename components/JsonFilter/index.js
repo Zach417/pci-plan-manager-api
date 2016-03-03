@@ -11,7 +11,7 @@ module.exports = function(schema, doc) {
                 var sp = schema.properties[key];
                 if (sp.type == 'object') {
                     if (sp.hasOwnProperty('properties')) {
-                        results[key] = filterObjectOnSchema(sp, doc[key]);
+                        results[key] = this(sp, doc[key]);
                     } else {
                         if (Object.keys(doc[key]).length > 0) {
                             results[key] = doc[key];
@@ -19,7 +19,7 @@ module.exports = function(schema, doc) {
                     }
                 } else if (sp.type == 'array') {
                     if (doc[key]) {
-                        results[key] = filterObjectOnSchema(sp, doc[key]);
+                        results[key] = this(sp, doc[key]);
                     }
                 } else if (sp.type == 'boolean' || sp.type == 'number' || sp.type == 'integer') {
                     if (doc[key] != null && typeof doc[key] != 'undefined') {
@@ -34,7 +34,7 @@ module.exports = function(schema, doc) {
         if (schema.items.type == 'object') {
             results = [];
             doc.forEach(function(item) {
-                results.push(filterObjectOnSchema(schema.items, item));
+                results.push(this(schema.items, item));
             });
         } else {
             results = doc;
