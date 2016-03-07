@@ -81,17 +81,23 @@ var writeFilterSchema = {
             "type":"string",
         },
         "parameters": {
-            "name": {
-                "type":"string",
-            },
-            "type": {
-                "type":"string",
-            },
-            "required": {
-                "type":"boolean",
-            },
-            "label": {
-                "type":"string",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+            	    "name": {
+            			"type":"string",
+            		},
+            	    "type": {
+            			"type":"string",
+            		},
+            	    "required": {
+            			"type":"boolean",
+            		},
+            	    "label": {
+            			"type":"string",
+            		},
+                },
             },
         },
         "actions": {
