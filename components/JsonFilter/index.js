@@ -33,7 +33,7 @@ module.exports = function(schema, doc) {
     } else if (schema.type == 'array') {
         if (schema.items.type == 'object') {
             results = [];
-            Object.keys(doc).forEach(function(item) {
+            doc.forEach(function(item) {
                 results.push(module.exports(schema.items, item));
             });
         } else {
