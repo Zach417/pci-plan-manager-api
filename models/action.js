@@ -4,12 +4,12 @@ var mongoose = restful.mongoose;
 var actionSchema = new mongoose.Schema({
 	name: String,
 	description: String,
-	parameters: {
+	parameters: [{
 	    name: String,
 	    type: String,
 	    required: Boolean,
 	    label: String,
-	},
+	}],
     actions: [{
 		name: String,
 		entity: String,
