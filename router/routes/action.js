@@ -20,6 +20,9 @@ var readFilterSchema = {
             "items": {
                 "type": "object",
                 "properties": {
+                    "_id": {
+                        "type":"string",
+                    },
             	    "name": {
             			"type":"string",
             		},
@@ -40,6 +43,9 @@ var readFilterSchema = {
             "items": {
                 "type": "object",
                 "properties": {
+                    "_id": {
+                        "type":"string",
+                    },
             		"name": {
             			"type":"string",
             		},
