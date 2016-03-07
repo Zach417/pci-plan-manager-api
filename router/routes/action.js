@@ -131,8 +131,19 @@ var writeFilterSchema = {
                     "type": {
                         "type":"string",
                     },
-                    "attributes": {
-                        "type": "object",
+            		"attributes": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                        		"name": {
+                        			"type":"string",
+                        		},
+                        		"value": {
+                        			"type":"string",
+                        		},
+                            },
+                        },
                     },
                 },
             },
