@@ -56,7 +56,18 @@ var readFilterSchema = {
             			"type":"string",
             		},
             		"attributes": {
-                        "type": "object",
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                        		"name": {
+                        			"type":"string",
+                        		},
+                        		"value": {
+                        			"type":"string",
+                        		},
+                            },
+                        },
                     },
                 },
             },
