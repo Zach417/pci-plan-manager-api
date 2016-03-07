@@ -12,23 +12,43 @@ var readFilterSchema = {
 		"name": {
 			"type":"string",
 		},
-		"pages": {
+    	"description": {
+			"type":"string",
+		},
+    	"parameters": {
+    	    "name": {
+    			"type":"string",
+    		},
+    	    "type": {
+    			"type":"string",
+    		},
+    	    "required": {
+    			"type":"boolean",
+    		},
+    	    "label": {
+    			"type":"string",
+    		},
+    	},
+        "actions":{
             "type": "array",
             "items": {
                 "type": "object",
                 "properties": {
-                    "label": {
-                        "type": "string",
-                    },
-                    "description": {
-                        "type": "string",
-                    },
-                    "html": {
-                        "type": "string",
+            		"name": {
+            			"type":"string",
+            		},
+            		"entity": {
+            			"type":"string",
+            		},
+            		"type": {
+            			"type":"string",
+            		},
+            		"attributes": {
+                        "type": "object",
                     },
                 },
             },
-		},
+        },
 		"createdBy": {
 			"type":"string",
 		},
@@ -51,19 +71,39 @@ var writeFilterSchema = {
         "name": {
             "type":"string",
         },
-        "pages": {
+        "description": {
+            "type":"string",
+        },
+        "parameters": {
+            "name": {
+                "type":"string",
+            },
+            "type": {
+                "type":"string",
+            },
+            "required": {
+                "type":"boolean",
+            },
+            "label": {
+                "type":"string",
+            },
+        },
+        "actions": {
             "type": "array",
             "items": {
                 "type": "object",
                 "properties": {
-                    "label": {
-                        "type": "string",
+                    "name": {
+                        "type":"string",
                     },
-                    "description": {
-                        "type": "string",
+                    "entity": {
+                        "type":"string",
                     },
-                    "html": {
-                        "type": "string",
+                    "type": {
+                        "type":"string",
+                    },
+                    "attributes": {
+                        "type": "object",
                     },
                 },
             },

@@ -3,10 +3,18 @@ var mongoose = restful.mongoose;
 
 var actionSchema = new mongoose.Schema({
 	name: String,
-    pages: [{
-        label: String,
-        description: String,
-        html: String,
+	description: String,
+	parameters: {
+	    name: String,
+	    type: String,
+	    required: Boolean,
+	    label: String,
+	},
+    actions: [{
+		name: String,
+		entity: String,
+		type: String,
+		attributes: mongoose.Schema.Types.Mixed,
     }],
 	createdBy: {
         type: mongoose.Schema.ObjectId,
