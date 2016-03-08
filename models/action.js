@@ -1,21 +1,30 @@
 var restful = require('node-restful');
 var mongoose = restful.mongoose;
 
+var parameterSchema = new mongoose.Schema({
+    name: String,
+    type: String,
+    required: Boolean,
+    label: String,
+});
+
+var attributeSchema = new mongoose.Schema({
+    name: String,
+    value: mongoose.Schema.Types.Mixed,
+});
+
+var stepSchema = new mongoose.Schema({
+	name: String,
+	entity: String,
+	type: String,
+	attributes: [attributeSchema],
+});
+
 var actionSchema = new mongoose.Schema({
 	name: String,
 	description: String,
-	parameters: [{
-	    name: String,
-	    type: String,
-	    required: Boolean,
-	    label: String,
-	}],
-    actions: [{
-		name: String,
-		entity: String,
-		type: String,
-		attributes: mongoose.Schema.Types.Mixed,
-    }],
+	parameters: [parameterSchema],
+    steps: [stepSchema],
 	createdBy: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
