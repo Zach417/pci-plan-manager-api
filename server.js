@@ -17,6 +17,6 @@ require('./config/registration') (app);
 
 app.use('/', require('./router'));
 
-app.listen(80);
-//app.listen(8080);
+app.listen(80); // Production
+//app.listen(8080); // Development
 console.log('Magic happens on port 80');
