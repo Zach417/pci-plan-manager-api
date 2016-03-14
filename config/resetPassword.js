@@ -3,7 +3,7 @@ var bcrypt = require('bcrypt-nodejs');
 
 var User = require('../models/user');
 var PasswordReset = require('../models/passwordReset');
-var EmailSender = require('../components/EmailSender');
+var EmailSender = require('../components/EmailSender/Index.js');
 
 function sendFailedJson(res) {
 	res.status(401).json({
