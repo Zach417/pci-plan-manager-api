@@ -14,9 +14,10 @@ require('./config/bodyParser') (app);
 
 require('./config/authentication') (app);
 require('./config/registration') (app);
+require('./config/resetPassword') (app);
 
 app.use('/', require('./router'));
 
-app.listen(80); // Production
-//app.listen(8080); // Development
+//app.listen(80); // Production
+app.listen(8080); // Development
 console.log('Magic happens on port 80');
