@@ -19,9 +19,6 @@ function sendSuccessJson(res) {
 	});
 }
 
-var today = moment().startOf('day');
-var yesterday = moment(today).subtract(2, 'hours');
-
 module.exports = function (app) {
 	app.post('/forgot', function(req, res) {
 		var email = req.headers['email'];
@@ -37,7 +34,7 @@ module.exports = function (app) {
 		PasswordReset.find({
 			"email": email,
 			"createdOn": {
-				"$gte": yesterday.toDate(),
+				"$gte": moment().subtract(2, 'hours'),
 			}
 		}, function (err, docs) {
 			if (err) {
