@@ -1,21 +1,29 @@
 var bcrypt = require('bcrypt-nodejs');
 
 var User = require('../models/user');
+var UserSetupRequest = require('../models/userSetupRequest');
+var EmailSender = require('../components/EmailSender/Index.js');
 
-function sendAuthorizationFailedJson(res) {
+function sendFailedJson(res) {
 	res.status(401).json({
 		success: false,
-		message: 'Authentication failed.'
+		message: 'Registration failed. Invalid token or id. If you have submitted multiple registration requests,'
+			+ 'you will need to use the most recent link or submit a new registration request.'
 	});
 }
 
 module.exports = function (app) {
 	app.post('/register', function(req, res) {
 		var email = req.headers['email'];
+		var firstName = req.headers['firstname'];
+		var lastName = req.headers['lastname'];
 		var password = req.headers['password'];
 
-		if (!email || !password) {
-			return sendAuthorizationFailedJson(res);
+		if (!email || !firstName || !lastName || !password) {
+			return res.json({
+				success: false,
+				message: "One or more required fields not supplied.",
+			});
 		}
 
 		User.findOne({
@@ -32,25 +40,75 @@ module.exports = function (app) {
 			} else if (!user) {
 				user = new User();
 				user.email = email;
+				user.firstName = firstName;
+				user.lastName = lastName;
 				user.password = user.generateHash(password);
-				user.token = {};
-				user.save(function (err) {
-					if (err) {
-						console.log(err);
-					}
-				});
 
-				if (!user.validPassword(password)) {
-					return sendAuthorizationFailedJson(res);
-				} else {
-					user.generateToken(function (token) {
-						res.json({
+				UserSetupRequest.findOne({
+					"email": user.email
+				}, function (err, userSetupRequest) {
+					// if there is no user but there has already been a registration request,
+					// create a new token (because we don't store them plan-text) and
+					// send it to the user's email address
+					if (!userSetupRequest) {
+						userSetupRequest = new UserSetupRequest();
+					}
+
+					userSetupRequest.email = user.email;
+					userSetupRequest.firstName = user.firstName;
+					userSetupRequest.lastName = user.lastName;
+					userSetupRequest.password = user.password;
+					userSetupRequest.attempts = 0;
+					userSetupRequest.isExpired = false;
+					userSetupRequest.generateTokenAndSendEmail(function () {
+						return res.json({
 							success: true,
-							message: 'User successfully registered.',
-							accessToken: token
+							message: 'User registration request successfully submitted. Check your email for instructions on how to complete your registration.',
 						});
 					});
-				}
+				});
+			}
+		});
+	});
+
+	app.post('/register/:id', function(req, res) {
+		var token = req.headers['token'];
+		var id = req.params.id;
+
+		if (!token) {
+			return sendFailedJson(res);
+		}
+
+		UserSetupRequest.findOne({
+			"_id": id
+		}, function (err, userSetupRequest) {
+			if (err) {
+				console.log(err);
+				return sendFailedJson(res);
+			}
+
+			if (userSetupRequest.isValidToken(token)) {
+				var user = new User();
+				user.email = userSetupRequest.email;
+				user.firstName = userSetupRequest.firstName;
+				user.lastName = userSetupRequest.lastName;
+				user.password = userSetupRequest.password;
+
+				userSetupRequest.isExpired = true;
+				userSetupRequest.password = null;
+				userSetupRequest.save(function (err) {
+					if (err) { console.log(err); }
+				});
+
+				user.save(function (err) {
+					if (err) { console.log(err); }
+					return res.json({
+						success: true,
+						message: 'User successfully registered. You may now login to the application.',
+					});
+				});
+			} else {
+				return sendFailedJson(res);
 			}
 		});
 	});
