@@ -2,7 +2,7 @@ var moment = require('moment');
 var restful = require('node-restful');
 var mongoose = restful.mongoose;
 var bcrypt = require('bcrypt-nodejs');
-var EmailSender = require('../components/EmailSender/Index.js');
+var EmailSender = require('../components/EmailSender');
 
 function createToken (callback) {
     require('crypto').randomBytes(128, function(ex, buf) {
