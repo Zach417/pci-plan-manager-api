@@ -25,9 +25,7 @@ var EmailSender = function (options) {
             }
         });
         transporter.sendMail(this.mailOptions, function(error, info){
-            if(error){
-                return console.log(error);
-            }
+            if(error){ return console.log(error); }
             console.log('Message sent: ' + info.response);
         });
     }
