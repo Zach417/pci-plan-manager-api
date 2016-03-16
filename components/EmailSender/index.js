@@ -1,7 +1,8 @@
 var nodemailer = require('nodemailer');
+var path = require('path');
 var Emails = require('./Emails');
 
-var credentials = JSON.parse(fs.readFileSync("../emailCredentials.json", "utf8"));
+var credentials = JSON.parse(fs.readFileSync(path.join(__dirname, "../../..", "emailCredentials.json"), "utf8"));
 
 var EmailSender = function (options) {
     this.mailOptions = {
