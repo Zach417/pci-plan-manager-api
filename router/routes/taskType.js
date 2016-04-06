@@ -30,6 +30,76 @@ var readFilterSchema = {
 		"taskCategoryId": {
 			"type":"string",
 		},
+    "conditionSets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "conditions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "entity": {
+                  "type": "string",
+                },
+                "attributes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type":"string"
+                      },
+                      "value": {
+                        "type":"string"
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "_id": {
+                  "type": "string",
+                },
+                "name": {
+                  "type": "string",
+                },
+                "entity": {
+                  "type": "string",
+                },
+                "type": {
+                  "type": "string",
+                },
+                "attributes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                      },
+                      "name": {
+                        "type": "string",
+                      },
+                      "value": {
+                        "type": "string",
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
 		"createdBy": {
 			"type":"string",
 		},
@@ -70,6 +140,76 @@ var writeFilterSchema = {
 		"taskCategoryId": {
 			"type":"string",
 		},
+    "conditionSets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "conditions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "entity": {
+                  "type": "string",
+                },
+                "attributes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type":"string"
+                      },
+                      "value": {
+                        "type":"string"
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "_id": {
+                  "type": "string",
+                },
+                "name": {
+                  "type": "string",
+                },
+                "entity": {
+                  "type": "string",
+                },
+                "type": {
+                  "type": "string",
+                },
+                "attributes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                      },
+                      "name": {
+                        "type": "string",
+                      },
+                      "value": {
+                        "type": "string",
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
 	},
 }
 
