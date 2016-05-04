@@ -18,7 +18,10 @@ var stepSchema = new mongoose.Schema({
   type: String,
   entity: String,
   attributes: [attributeSchema],
-  recursion: String,
+  recursion: [{
+    value: String,
+    conditions: [conditionSchema],
+  }],
   completionWindow: String,
 });
 
