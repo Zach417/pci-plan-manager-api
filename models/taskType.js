@@ -13,15 +13,17 @@ var conditionSchema = new mongoose.Schema({
   attributes: [attributeSchema],
 });
 
+var recursionSchema = new mongoose.Schema({
+  value: String,
+  conditions: [conditionSchema],
+});
+
 var stepSchema = new mongoose.Schema({
   name: String,
   type: String,
   entity: String,
   attributes: [attributeSchema],
-  recursion: [{
-    value: String,
-    conditions: [conditionSchema],
-  }],
+  recursion: [recursionSchema],
   completionWindow: String,
 });
 
