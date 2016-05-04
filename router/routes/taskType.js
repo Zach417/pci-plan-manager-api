@@ -2,34 +2,20 @@ var TaskType = require('../../models/taskType');
 var RestFilter = require('../../components/RestFilter');
 var UserSecurity = require('../security');
 
+var string = { "type":"string" };
+
 var readFilterSchema = {
-    "title": "Task Type Schema",
-    "type": "object",
-    "properties": {
-		"_id": {
-			"type":"string",
-		},
-		"name": {
-			"type":"string",
-		},
-		"purpose": {
-			"type":"string",
-		},
-		"process" : {
-			"type":"string",
-		},
-		"outcomes": {
-			"type":"string",
-		},
-		"tips": {
-			"type":"string",
-		},
-		"reminders": {
-			"type":"string",
-		},
-		"taskCategoryId": {
-			"type":"string",
-		},
+  "title": "Task Type Schema",
+  "type": "object",
+  "properties": {
+		"_id": string,
+		"name": string,
+		"purpose": string,
+		"process" : string,
+		"outcomes": string,
+		"tips": string,
+		"reminders": string,
+		"taskCategoryId": string,
     "conditionSets": {
       "type": "array",
       "items": {
@@ -40,20 +26,15 @@ var readFilterSchema = {
             "items": {
               "type": "object",
               "properties": {
-                "entity": {
-                  "type": "string",
-                },
+                "entity": string,
                 "attributes": {
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
-                      "name": {
-                        "type":"string"
-                      },
-                      "value": {
-                        "type":"string"
-                      },
+                      "name": string,
+                      "comparisonType": string,
+                      "value": string,
                     },
                   },
                 },
@@ -65,32 +46,18 @@ var readFilterSchema = {
             "items": {
               "type": "object",
               "properties": {
-                "_id": {
-                  "type": "string",
-                },
-                "name": {
-                  "type": "string",
-                },
-                "entity": {
-                  "type": "string",
-                },
-                "type": {
-                  "type": "string",
-                },
+                "_id": string,
+                "name": string,
+                "entity": string,
+                "type": string,
                 "attributes": {
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
-                      "_id": {
-                        "type": "string",
-                      },
-                      "name": {
-                        "type": "string",
-                      },
-                      "value": {
-                        "type": "string",
-                      },
+                      "_id": string,
+                      "name": string,
+                      "value": string,
                     },
                   },
                 },
@@ -100,46 +67,24 @@ var readFilterSchema = {
         },
       },
     },
-		"createdBy": {
-			"type":"string",
-		},
-		"createdOn": {
-			"type":"date",
-		},
-		"modifiedBy": {
-			"type":"string",
-		},
-		"modifiedOn": {
-			"type":"date",
-		},
+		"createdBy": string,
+		"createdOn": { "type":"date" },
+		"modifiedBy": string,
+		"modifiedOn": { "type":"date" },
 	},
 }
 
 var writeFilterSchema = {
-    "title": "Task Type Schema",
-    "type": "object",
-    "properties": {
-		"name": {
-			"type":"string",
-		},
-		"purpose": {
-			"type":"string",
-		},
-		"process" : {
-			"type":"string",
-		},
-		"outcomes": {
-			"type":"string",
-		},
-		"tips": {
-			"type":"string",
-		},
-		"reminders": {
-			"type":"string",
-		},
-		"taskCategoryId": {
-			"type":"string",
-		},
+  "title": "Task Type Schema",
+  "type": "object",
+  "properties": {
+		"name": string,
+		"purpose": string,
+		"process" : string,
+		"outcomes": string,
+		"tips": string,
+		"reminders": string,
+		"taskCategoryId": string,
     "conditionSets": {
       "type": "array",
       "items": {
@@ -150,20 +95,15 @@ var writeFilterSchema = {
             "items": {
               "type": "object",
               "properties": {
-                "entity": {
-                  "type": "string",
-                },
+                "entity": string,
                 "attributes": {
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
-                      "name": {
-                        "type":"string"
-                      },
-                      "value": {
-                        "type":"string"
-                      },
+                      "name": string,
+                      "comparisonType": string,
+                      "value": string,
                     },
                   },
                 },
@@ -175,32 +115,18 @@ var writeFilterSchema = {
             "items": {
               "type": "object",
               "properties": {
-                "_id": {
-                  "type": "string",
-                },
-                "name": {
-                  "type": "string",
-                },
-                "entity": {
-                  "type": "string",
-                },
-                "type": {
-                  "type": "string",
-                },
+                "_id": string,
+                "name": string,
+                "entity": string,
+                "type": string,
                 "attributes": {
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
-                      "_id": {
-                        "type": "string",
-                      },
-                      "name": {
-                        "type": "string",
-                      },
-                      "value": {
-                        "type": "string",
-                      },
+                      "_id": string,
+                      "name": string,
+                      "value": string,
                     },
                   },
                 },

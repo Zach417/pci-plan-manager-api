@@ -18,6 +18,18 @@ require('./config/resetPassword') (app);
 
 app.use('/', require('./router'));
 
-app.listen(80); // Production
-//app.listen(8080); // Development
-console.log('Magic happens on port 80');
+
+switch (process.env.NODE_ENV) {
+  case 'development':
+    console.log('Magic happens on port 8080');
+    return app.listen(8080);
+
+  case 'production':
+    console.log('Magic happens on port 80');
+    return app.listen(80);
+
+  default:
+    console.log('NODE_ENV not set. Defaulting to production settings.');
+    console.log('Magic happens on port 80');
+    return app.listen(80);
+}

@@ -3,6 +3,7 @@ var mongoose = restful.mongoose;
 
 var attributeSchema = new mongoose.Schema({
   name: String,
+  comparisonType: String,
   value: mongoose.Schema.Types.Mixed,
 });
 
