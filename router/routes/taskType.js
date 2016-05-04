@@ -149,6 +149,36 @@ var writeFilterSchema = {
                 "name": string,
                 "entity": string,
                 "type": string,
+                "recursion": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "_id": string,
+                      "value": string,
+                      "conditions": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "entity": string,
+                            "attributes": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "value": string,
+                                  "comparisonType": string,
+                                  "value": string,
+                                },
+                              },
+                            },
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
                 "attributes": {
                   "type": "array",
                   "items": {
