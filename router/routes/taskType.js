@@ -32,7 +32,7 @@ var readFilterSchema = {
                   "items": {
                     "type": "object",
                     "properties": {
-                      "value": string,
+                      "name": string,
                       "comparisonType": string,
                       "value": string,
                     },
@@ -68,7 +68,7 @@ var readFilterSchema = {
                               "items": {
                                 "type": "object",
                                 "properties": {
-                                  "value": string,
+                                  "name": string,
                                   "comparisonType": string,
                                   "value": string,
                                 },
@@ -167,7 +167,7 @@ var writeFilterSchema = {
                               "items": {
                                 "type": "object",
                                 "properties": {
-                                  "value": string,
+                                  "name": string,
                                   "comparisonType": string,
                                   "value": string,
                                 },
