@@ -3,49 +3,52 @@ var RestFilter = require('../../components/RestFilter');
 var UserSecurity = require('../security');
 
 var readFilterSchema = {
-    "title": "Plan Schema",
-    "type": "object",
-    "properties": {
-		"_id": {
-			"type":"string",
-		},
-		"name": {
-			"type":"string",
-		},
-		"planType": {
-			"type":"string",
-		},
-		"description": {
-			"type":"string",
-		},
-		"createdBy": {
-			"type":"string",
-		},
-		"createdOn": {
-			"type":"date",
-		},
-		"modifiedBy": {
-			"type":"string",
-		},
-		"modifiedOn": {
-			"type":"date",
-		},
+  "title": "Plan Schema",
+  "type": "object",
+  "properties": {
+		"_id": { "type":"string" },
+		"name": { "type":"string" },
+		"planType": { "type":"string" },
+		"description": { "type":"string" },
+    "duties": {
+      "type": "object",
+      "properties": {
+        "investment": {
+          "type": "object",
+          "properties": {
+      		  "isDelegated": { "type":"boolean" },
+        		"delegationType": { "type":"string" },
+          },
+        },
+      },
+    },
+		"createdBy": { "type":"string" },
+		"createdOn": { "type":"date" },
+		"modifiedBy": { "type":"string" },
+		"modifiedOn": { "type":"date" },
 	},
 }
 
 var writeFilterSchema = {
-    "title": "Plan Schema",
-    "type": "object",
-    "properties": {
-		"name": {
-			"type":"string",
-		},
-		"planType": {
-			"type":"string",
-		},
-		"description": {
-			"type":"string",
-		},
+  "title": "Plan Schema",
+  "type": "object",
+  "properties": {
+  	"_id": { "type":"string" },
+  	"name": { "type":"string" },
+  	"planType": { "type":"string" },
+  	"description": { "type":"string" },
+    "duties": {
+      "type": "object",
+      "properties": {
+        "investment": {
+          "type": "object",
+          "properties": {
+      		  "isDelegated": { "type":"boolean" },
+        		"delegationType": { "type":"string" },
+          },
+        },
+      },
+    },
 	},
 }
 

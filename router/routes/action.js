@@ -6,35 +6,19 @@ var readFilterSchema = {
   "title": "Plan Schema",
   "type": "object",
   "properties": {
-    "_id": {
-      "type": "string",
-    },
-    "name": {
-      "type": "string",
-    },
-    "description": {
-      "type": "string",
-    },
+    "_id": { "type": "string" },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
     "parameters": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "_id": {
-            "type": "string",
-          },
-          "name": {
-            "type": "string",
-          },
-          "type": {
-            "type": "string",
-          },
-          "required": {
-            "type": "boolean",
-          },
-          "label": {
-            "type": "string",
-          },
+          "_id": { "type": "string" },
+          "name": { "type": "string" },
+          "type": { "type": "string" },
+          "required": { "type": "boolean" },
+          "label": { "type": "string" },
         },
       },
     },
@@ -43,50 +27,28 @@ var readFilterSchema = {
       "items": {
         "type": "object",
         "properties": {
-          "_id": {
-            "type": "string",
-          },
-          "name": {
-            "type": "string",
-          },
-          "entity": {
-            "type": "string",
-          },
-          "type": {
-            "type": "string",
-          },
+          "_id": { "type": "string" },
+          "name": { "type": "string" },
+          "entity": { "type": "string" },
+          "type": { "type": "string" },
           "attributes": {
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
-                "_id": {
-                  "type": "string",
-                },
-                "name": {
-                  "type": "string",
-                },
-                "value": {
-                  "type": "string",
-                },
+                "_id": { "type": "string" },
+                "name": { "type": "string" },
+                "value": { "type": "string" },
               },
             },
           },
         },
       },
     },
-    "createdBy": {
-      "type": "string",
-    },
-    "createdOn": {
-      "type": "date",
-    },
-    "modifiedBy": {
-      "type": "string",
-    },
-    "modifiedOn": {
-      "type": "date",
-    },
+    "createdBy": { "type": "string" },
+    "createdOn": { "type": "date" },
+    "modifiedBy": { "type": "string" },
+    "modifiedOn": { "type": "date" },
   },
 }
 
