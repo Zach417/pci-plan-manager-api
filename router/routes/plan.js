@@ -10,6 +10,8 @@ var readFilterSchema = {
 		"name": { "type":"string" },
 		"planType": { "type":"string" },
 		"description": { "type":"string" },
+		"assetValue": { "type":"number" },
+    "participantEntryFrequency": { "type":"string" },
     "duties": {
       "type": "object",
       "properties": {
@@ -37,6 +39,8 @@ var writeFilterSchema = {
   	"name": { "type":"string" },
   	"planType": { "type":"string" },
   	"description": { "type":"string" },
+		"assetValue": { "type":"number" },
+    "participantEntryFrequency": { "type":"string" },
     "duties": {
       "type": "object",
       "properties": {
