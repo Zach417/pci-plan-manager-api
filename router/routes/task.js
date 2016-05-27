@@ -15,6 +15,8 @@ var readFilterSchema = {
 		"dateDue": { "type":"date" },
 		"dateCompleted": { "type":"date" },
 		"completedBy": { "type":"string" },
+		"completionComments": { "type":"string" },
+		"peopleInvolvedComments": { "type":"string" },
 		"createdBy": { "type":"string" },
 		"createdOn": { "type":"date" },
 		"modifiedBy": { "type":"string" },
@@ -34,6 +36,8 @@ var writeFilterSchema = {
 		"dateDue": { "type":"date" },
 		"dateCompleted": { "type":"date" },
 		"completedBy": { "type":"string" },
+		"completionComments": { "type":"string" },
+		"peopleInvolvedComments": { "type":"string" },
 	},
 }
 

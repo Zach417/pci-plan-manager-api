@@ -14,8 +14,6 @@ var planSchema = new mongoose.Schema({
     },
   },
   description: String,
-
-	// new fields to add
   planSponsorName: String,
 	assetValue: Number,
   planStartDate: Date,
