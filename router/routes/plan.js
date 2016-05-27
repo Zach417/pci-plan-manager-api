@@ -10,20 +10,17 @@ var readFilterSchema = {
 		"name": { "type":"string" },
 		"planType": { "type":"string" },
 		"description": { "type":"string" },
-		"assetValue": { "type":"number" },
-    "participantEntryFrequency": { "type":"string" },
-    "duties": {
-      "type": "object",
-      "properties": {
-        "investment": {
-          "type": "object",
-          "properties": {
-      		  "isDelegated": { "type":"boolean" },
-        		"delegationType": { "type":"string" },
-          },
-        },
-      },
-    },
+    "planSponsorName": { "type":"string" },
+  	"assetValue": { "type":"number" },
+    "planStartDate": { "type":"date" },
+    "participantEntryFrequency": { "type":"string" }, //Annual, semi-annual, quarterly
+    "employerContributions": { "type":"boolean" },
+    "employerContributionSchedule": { "type":"string" }, //Pay Period, Plan Year
+    "isSafeHarbor": { "type":"boolean" },
+    "allowsLoans": { "type":"boolean" },
+    "isAuditable": { "type":"boolean" },
+    "isInvestmentDelegated": { "type":"boolean" },
+    "investmentDelegationType": { "type":"string" }, // 3(21), 3(38)
 		"createdBy": { "type":"string" },
 		"createdOn": { "type":"date" },
 		"modifiedBy": { "type":"string" },
@@ -35,24 +32,20 @@ var writeFilterSchema = {
   "title": "Plan Schema",
   "type": "object",
   "properties": {
-  	"_id": { "type":"string" },
   	"name": { "type":"string" },
   	"planType": { "type":"string" },
   	"description": { "type":"string" },
-		"assetValue": { "type":"number" },
-    "participantEntryFrequency": { "type":"string" },
-    "duties": {
-      "type": "object",
-      "properties": {
-        "investment": {
-          "type": "object",
-          "properties": {
-      		  "isDelegated": { "type":"boolean" },
-        		"delegationType": { "type":"string" },
-          },
-        },
-      },
-    },
+    "planSponsorName": { "type":"string" },
+  	"assetValue": { "type":"number" },
+    "planStartDate": { "type":"date" },
+    "participantEntryFrequency": { "type":"string" }, //Annual, semi-annual, quarterly
+    "employerContributions": { "type":"boolean" },
+    "employerContributionSchedule": { "type":"string" }, //Pay Period, Plan Year
+    "isSafeHarbor": { "type":"boolean" },
+    "allowsLoans": { "type":"boolean" },
+    "isAuditable": { "type":"boolean" },
+    "isInvestmentDelegated": { "type":"boolean" },
+    "investmentDelegationType": { "type":"string" }, // 3(21), 3(38)
 	},
 }
 

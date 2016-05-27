@@ -3,79 +3,37 @@ var RestFilter = require('../../components/RestFilter');
 var UserSecurity = require('../security');
 
 var readFilterSchema = {
-    "title": "Task Schema",
-    "type": "object",
-    "properties": {
-		"_id": {
-			"type":"string",
-		},
-		"name": {
-			"type":"string",
-		},
-		"description": {
-			"type":"string",
-		},
-		"ownerId" : {
-			"type":"string",
-		},
-		"planId": {
-			"type":"string",
-		},
-		"taskTypeId": {
-			"type":"string",
-		},
-		"dateDue": {
-			"type":"date",
-		},
-		"dateCompleted": {
-			"type":"date",
-		},
-		"completedBy": {
-			"type":"string",
-		},
-		"createdBy": {
-			"type":"string",
-		},
-		"createdOn": {
-			"type":"date",
-		},
-		"modifiedBy": {
-			"type":"string",
-		},
-		"modifiedOn": {
-			"type":"date",
-		},
+  "title": "Task Schema",
+  "type": "object",
+  "properties": {
+		"_id": { "type":"string" },
+		"name": { "type":"string" },
+		"description": { "type":"string" },
+		"ownerId" : { "type":"string" },
+		"planId": { "type":"string" },
+		"taskTypeId": { "type":"string" },
+		"dateDue": { "type":"date" },
+		"dateCompleted": { "type":"date" },
+		"completedBy": { "type":"string" },
+		"createdBy": { "type":"string" },
+		"createdOn": { "type":"date" },
+		"modifiedBy": { "type":"string" },
+		"modifiedOn": { "type":"date" },
 	},
 }
 
 var writeFilterSchema = {
-    "title": "Task Schema",
-    "type": "object",
-    "properties": {
-		"name": {
-			"type":"string",
-		},
-		"description": {
-			"type":"string",
-		},
-		"ownerId" : {
-			"type":"string",
-		},
-		"planId": {
-			"type":"string",
-		},
-		"taskTypeId": {
-			"type":"string",
-		},
-		"dateDue": {
-			"type":"date",
-		},
-		"dateCompleted": {
-			"type":"date",
-		},
-		"completedBy": {
-			"type":"string",
-		},
+  "title": "Task Schema",
+  "type": "object",
+  "properties": {
+		"name": { "type":"string" },
+		"description": { "type":"string" },
+		"ownerId" : { "type":"string" },
+		"planId": { "type":"string" },
+		"taskTypeId": { "type":"string" },
+		"dateDue": { "type":"date" },
+		"dateCompleted": { "type":"date" },
+		"completedBy": { "type":"string" },
 	},
 }
 

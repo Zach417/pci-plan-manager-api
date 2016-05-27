@@ -16,14 +16,17 @@ var planSchema = new mongoose.Schema({
   description: String,
 
 	// new fields to add
+  planSponsorName: String,
 	assetValue: Number,
+  planStartDate: Date,
   participantEntryFrequency: String, //Annual, semi-annual, quarterly
-	duties: {
-		investment: {
-			isDelegated: Boolean,
-			delegationType: String, // 3(21), 3(38)
-		},
-	},
+  employerContributions: Boolean,
+  employerContributionSchedule: String, //Pay Period, Plan Year
+  isSafeHarbor: Boolean,
+  allowsLoans: Boolean,
+  isAuditable: Boolean,
+  isInvestmentDelegated: Boolean,
+  investmentDelegationType: String, // 3(21), 3(38)
 
   createdBy: {
     type: mongoose.Schema.ObjectId,

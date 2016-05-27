@@ -3,49 +3,27 @@ var RestFilter = require('../../components/RestFilter');
 var UserSecurity = require('../security');
 
 var readFilterSchema = {
-    "title": "Task Category Schema",
-    "type": "object",
-    "properties": {
-		"_id": {
-			"type":"string",
-		},
-		"name": {
-			"type":"string",
-		},
-		"icon": {
-			"type":"string",
-		},
-		"description": {
-			"type":"string",
-		},
-		"createdBy": {
-			"type":"string",
-		},
-		"createdOn": {
-			"type":"date",
-		},
-		"modifiedBy": {
-			"type":"string",
-		},
-		"modifiedOn": {
-			"type":"date",
-		},
+  "title": "Task Category Schema",
+  "type": "object",
+  "properties": {
+		"_id": { "type":"string" },
+		"name": { "type":"string" },
+		"icon": { "type":"string" },
+		"description": { "type":"string" },
+		"createdBy": { "type":"string" },
+		"createdOn": { "type":"date" },
+		"modifiedBy": { "type":"string" },
+		"modifiedOn": { "type":"date" },
 	},
 }
 
 var writeFilterSchema = {
-    "title": "Task Category Schema",
-    "type": "object",
-    "properties": {
-		"name": {
-			"type":"string",
-		},
-		"icon": {
-			"type":"string",
-		},
-		"description": {
-			"type":"string",
-		},
+  "title": "Task Category Schema",
+  "type": "object",
+  "properties": {
+		"name": { "type":"string" },
+		"icon": { "type":"string" },
+		"description": { "type":"string" },
 	},
 }
 

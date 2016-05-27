@@ -3,49 +3,27 @@ var RestFilter = require('../../components/RestFilter');
 var UserSecurity = require('../security');
 
 var readFilterSchema = {
-    "title": "User Schema",
-    "type": "object",
-    "properties": {
-		"_id": {
-			"type":"string",
-		},
-		"email": {
-			"type":"string",
-		},
-		"firstName": {
-			"type":"string",
-		},
-		"lastName": {
-			"type":"string",
-		},
-		"isAdmin": {
-			"type":"boolean",
-		},
-		"createdBy": {
-			"type":"string",
-		},
-		"createdOn": {
-			"type":"date",
-		},
-		"modifiedBy": {
-			"type":"string",
-		},
-		"modifiedOn": {
-			"type":"date",
-		},
+  "title": "User Schema",
+  "type": "object",
+  "properties": {
+		"_id": { "type":"string" },
+		"email": { "type":"string" },
+		"firstName": { "type":"string" },
+		"lastName": { "type":"string" },
+		"isAdmin": { "type":"boolean" },
+		"createdBy": { "type":"string" },
+		"createdOn": { "type":"date" },
+		"modifiedBy": { "type":"string" },
+		"modifiedOn": { "type":"date" },
 	},
 }
 
 var writeFilterSchema = {
-    "title": "User Schema",
-    "type": "object",
-    "properties": {
-		"firstName": {
-			"type":"string",
-		},
-		"lastName": {
-			"type":"string",
-		},
+  "title": "User Schema",
+  "type": "object",
+  "properties": {
+		"firstName": { "type":"string" },
+		"lastName": { "type":"string" },
 	},
 }
 
