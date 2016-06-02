@@ -21,7 +21,7 @@ var readFilterSchema = {
     		  "taskId": { "type":"string" },
         },
       },
-    }
+    },
     "approvals": {
       "type": "array",
       "items": {
@@ -57,7 +57,7 @@ var writeFilterSchema = {
           "taskId": { "type":"string" },
         },
       },
-    }
+    },
     "approvals": {
       "type": "array",
       "items": {
