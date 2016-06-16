@@ -21,6 +21,9 @@ var readFilterSchema = {
     "isAuditable": { "type":"boolean" },
     "isInvestmentDelegated": { "type":"boolean" },
     "investmentDelegationType": { "type":"string" }, // 3(21), 3(38)
+    "hasAutomaticEnrollment": { "type":"boolean" },
+    "hasAutomaticEscalation": { "type":"boolean" },
+    "hasQdiaFund": { "type":"boolean" },
 		"createdBy": { "type":"string" },
 		"createdOn": { "type":"date" },
 		"modifiedBy": { "type":"string" },
@@ -46,6 +49,9 @@ var writeFilterSchema = {
     "isAuditable": { "type":"boolean" },
     "isInvestmentDelegated": { "type":"boolean" },
     "investmentDelegationType": { "type":"string" }, // 3(21), 3(38)
+    "hasAutomaticEnrollment": { "type":"boolean" },
+    "hasAutomaticEscalation": { "type":"boolean" },
+    "hasQdiaFund": { "type":"boolean" },
 	},
 }
 

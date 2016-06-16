@@ -25,6 +25,9 @@ var planSchema = new mongoose.Schema({
   isAuditable: Boolean,
   isInvestmentDelegated: Boolean,
   investmentDelegationType: String, // 3(21), 3(38)
+  hasAutomaticEnrollment: Boolean,
+  hasAutomaticEscalation: Boolean,
+  hasQdiaFund: Boolean,
 
   createdBy: {
     type: mongoose.Schema.ObjectId,
