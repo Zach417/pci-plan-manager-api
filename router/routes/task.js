@@ -17,6 +17,8 @@ var readFilterSchema = {
 		"completedBy": { "type":"string" },
 		"completionComments": { "type":"string" },
 		"peopleInvolvedComments": { "type":"string" },
+		"isActive": { "type":"boolean" },
+		"status": { "type":"string" },
 		"createdBy": { "type":"string" },
 		"createdOn": { "type":"date" },
 		"modifiedBy": { "type":"string" },
@@ -38,6 +40,8 @@ var writeFilterSchema = {
 		"completedBy": { "type":"string" },
 		"completionComments": { "type":"string" },
 		"peopleInvolvedComments": { "type":"string" },
+		"isActive": { "type":"boolean" },
+		"status": { "type":"string" },
 	},
 }
 

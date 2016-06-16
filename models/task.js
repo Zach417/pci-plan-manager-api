@@ -36,6 +36,8 @@ var taskSchema = new mongoose.Schema({
   people: [{
     id: String
   }],
+  isActive: Boolean,
+  status: String, // Completed, In Progress
   createdBy: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
