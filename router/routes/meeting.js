@@ -72,10 +72,10 @@ function findMany (user, callback) {
 		.find()
 		.sort([['name', 'ascending']])
 		.where({
-      $or: [{
+      $or: [
         {"planId": { $in : user.plans }},
 				{"createdBy": user._id}
-      }]
+      ]
     })
 		.exec(function (err, result) {
 			return callback(result);
