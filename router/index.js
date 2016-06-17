@@ -9,5 +9,6 @@ router.use(require('./routes/taskCategory'));
 router.use(require('./routes/user'));
 router.use(require('./routes/userRole'));
 router.use(require('./routes/document'));
+router.use(require('./routes/meeting'));
 
 module.exports = router;
