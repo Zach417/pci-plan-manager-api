@@ -83,7 +83,7 @@ function findMany (user, callback) {
 }
 
 module.exports = new RestFilter({
-	path : "/document",
+	path : "/meeting",
 	model: Model,
 	readFilterSchema: readFilterSchema,
 	writeFilterSchema: writeFilterSchema,
