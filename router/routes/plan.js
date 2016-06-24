@@ -12,6 +12,7 @@ var readFilterSchema = {
 		"description": { "type":"string" },
     "planSponsorName": { "type":"string" },
   	"assetValue": { "type":"number" },
+  	"isSubjectToErisa": { "type":"boolean" },
     "planStartDate": { "type":"date" },
     "participantEntryFrequency": { "type":"string" }, //Annual, semi-annual, quarterly
     "employerContributions": { "type":"boolean" },
@@ -40,6 +41,7 @@ var writeFilterSchema = {
   	"description": { "type":"string" },
     "planSponsorName": { "type":"string" },
   	"assetValue": { "type":"number" },
+  	"isSubjectToErisa": { "type":"boolean" },
     "planStartDate": { "type":"date" },
     "participantEntryFrequency": { "type":"string" }, //Annual, semi-annual, quarterly
     "employerContributions": { "type":"boolean" },

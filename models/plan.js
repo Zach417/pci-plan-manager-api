@@ -16,6 +16,7 @@ var planSchema = new mongoose.Schema({
   description: String,
   planSponsorName: String,
 	assetValue: Number,
+  isSubjectToErisa: Boolean,
   planStartDate: Date,
   participantEntryFrequency: String, //Annual, semi-annual, quarterly
   employerContributions: Boolean,
