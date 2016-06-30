@@ -1,7 +1,7 @@
 var restful = require('node-restful');
 var mongoose = restful.mongoose;
 
-var documentSchema = new mongoose.Schema({
+var schema = new mongoose.Schema({
   name: String,
   description: String,
   type: String,
@@ -26,4 +26,4 @@ var documentSchema = new mongoose.Schema({
   modifiedOn: Date,
 });
 
-module.exports = restful.model('Document', documentSchema);
+module.exports = restful.model('Checklist', schema);
