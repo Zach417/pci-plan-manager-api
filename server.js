@@ -2,7 +2,7 @@ var fs = require('fs');
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
-var conf = JSON.parse(fs.readFileSync('config.json', 'utf8'));
+var conf = JSON.parse(fs.readFileSync(__dirname + 'config.json', 'utf8'));
 
 var mongooseOptions = { server: { socketOptions: { keepAlive: 1 } } };
 var usr = conf.mongodb.username;
